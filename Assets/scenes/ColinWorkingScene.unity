@@ -5121,7 +5121,7 @@ MonoBehaviour:
   Player3Spell: {fileID: 0}
   Player4Spell: {fileID: 0}
   joystickSpells:
-  - {fileID: 378901227}
+  - {fileID: 29518726}
   - {fileID: 378901227}
   faceSpells:
   - {fileID: 1177606518}

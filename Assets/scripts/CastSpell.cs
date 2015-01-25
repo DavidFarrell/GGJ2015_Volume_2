@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using HutongGames.PlayMaker;
 using System;
 
@@ -33,7 +34,7 @@ public class CastSpell : MonoBehaviour {
 		if (syncStatus.Value) {
 
 
-
+			runningScores ();
 			// these are individual people's readiness
 
 
@@ -62,9 +63,10 @@ public class CastSpell : MonoBehaviour {
 			}
 
 			if ( p1Spell != null && p2Spell != null && p3Spell != null && p4Spell != null) {
+				updateScores ();
 				// if they press the button, they better be rigggghhht!
 				if (Input.GetButtonDown ("ButtonMiddle")) {
-					updateScores ();
+
 					if (checkStatus ()) {
 						Debug.Log ("YOU GOT IT");
 						gameManagerFSM.SendEvent ("SyncSucceed");
@@ -84,15 +86,54 @@ public class CastSpell : MonoBehaviour {
 	
 	}
 
+	void runningScores(){
+
+		IList scores = new List<int> ();
+
+
+		if (player1.GetComponentInChildren<Spell> () != null) {
+			FsmInt player1Fails = FsmVariables.GlobalVariables.FindFsmInt("P1Score");
+			player1Fails.Value = player1.GetComponentInChildren<Spell>().currentFailures();
+			scores.Add(player1Fails.Value);
+			
+		}
+
+		if (player2.GetComponentInChildren<Spell> () != null) {
+			FsmInt player2Fails = FsmVariables.GlobalVariables.FindFsmInt("P2Score");
+			player2Fails.Value = player2.GetComponentInChildren<Spell>().currentFailures();
+			scores.Add(player2Fails.Value);
+		}
+
+		if (player3.GetComponentInChildren<Spell> () != null) {
+			FsmInt player3Fails = FsmVariables.GlobalVariables.FindFsmInt("P3Score");
+			player3Fails.Value = player3.GetComponentInChildren<Spell>().currentFailures();
+			scores.Add(player3Fails.Value);
+		}
+
+		if (player4.GetComponentInChildren<Spell> () != null) {
+			FsmInt player4Fails = FsmVariables.GlobalVariables.FindFsmInt("P4Score");
+			player4Fails.Value = player4.GetComponentInChildren<Spell>().currentFailures();
+			scores.Add(player4Fails.Value);
+		}
+
+		FsmInt worstPlayer = FsmVariables.GlobalVariables.FindFsmInt("WorstPlayer");
+		int p = indexOfMaxList(scores);
+		worstPlayer.Value = p+1;
+
+	}
+
 	void updateScores() {
+
+
+
 		FsmInt player1Fails = FsmVariables.GlobalVariables.FindFsmInt("P1Score");
-		player1Fails.Value += player1.GetComponentInChildren<Spell>().currentFailures();
+		player1Fails.Value = player1.GetComponentInChildren<Spell>().currentFailures();
 		FsmInt player2Fails = FsmVariables.GlobalVariables.FindFsmInt("P2Score");
-		player2Fails.Value += player2.GetComponentInChildren<Spell>().currentFailures();
+		player2Fails.Value = player2.GetComponentInChildren<Spell>().currentFailures();
 		FsmInt player3Fails = FsmVariables.GlobalVariables.FindFsmInt("P3Score");
-		player3Fails.Value += player3.GetComponentInChildren<Spell>().currentFailures();
+		player3Fails.Value = player3.GetComponentInChildren<Spell>().currentFailures();
 		FsmInt player4Fails = FsmVariables.GlobalVariables.FindFsmInt("P4Score");
-		player4Fails.Value += player4.GetComponentInChildren<Spell>().currentFailures();
+		player4Fails.Value = player4.GetComponentInChildren<Spell>().currentFailures();
 		FsmBool groupFail = FsmVariables.GlobalVariables.FindFsmBool("GroupFail");
 		FsmInt worstPlayer = FsmVariables.GlobalVariables.FindFsmInt("WorstPlayer");
 
@@ -116,6 +157,18 @@ public class CastSpell : MonoBehaviour {
 			if (scores[i] > best){
 				bestIndex = i;
 				best = scores[i];
+			}
+		}
+		return bestIndex;
+	}
+
+	private int indexOfMaxList(IList scores) {
+		int best = 0;
+		int bestIndex = 0;
+		for (int i = 0; i < scores.Count; i++) {
+			if ((int) scores[i] > best){
+				bestIndex = i;
+				best = (int) scores[i];
 			}
 		}
 		return bestIndex;

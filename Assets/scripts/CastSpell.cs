@@ -29,10 +29,9 @@ public class CastSpell : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		FsmBool syncStatus  = FsmVariables.GlobalVariables.FindFsmBool("MonitorSync");
-		Debug.Log ("MOnitor Sync is" + syncStatus);
 
 		if (syncStatus.Value) {
-			Debug.Log ("Checking stuff ");
+
 
 
 			// these are individual people's readiness

@@ -77,6 +77,7 @@ public class SpellBook : MonoBehaviour {
 			Player1Spell.transform.localPosition = new Vector3 (0, 0, 0);
 			Player1Spell.GetComponent<Spell> ().setLeftJoystick (true);
 			Player1Spell.SetActive (true);
+		//	Debug.Log("case1");
 			break;
 		}
 		case 2:
@@ -88,6 +89,7 @@ public class SpellBook : MonoBehaviour {
 			Player2Spell.transform.parent = player2.transform;
 			Player2Spell.transform.localPosition = new Vector3 (0, 0, 0);
 			Player2Spell.GetComponent<Spell> ().setLeftJoystick (false);
+		//	Debug.Log("case2");
 			Player2Spell.SetActive (true);
 			break;
 		}
@@ -99,6 +101,7 @@ public class SpellBook : MonoBehaviour {
 			lastPlayer.Value = player3.GetComponentInChildren<PlayerDetails>().playerNumber;
 			Player3Spell.transform.parent = player3.transform;
 			Player3Spell.transform.localPosition = new Vector3 (0, 0, 0);
+		//	Debug.Log("case3");
 			Player3Spell.SetActive (true);
 			break;
 		}
@@ -110,6 +113,7 @@ public class SpellBook : MonoBehaviour {
 			lastPlayer.Value = player4.GetComponentInChildren<PlayerDetails>().playerNumber;
 			Player4Spell.transform.parent = player4.transform;
 			Player4Spell.transform.localPosition = new Vector3 (0, 0, 0);
+		//	Debug.Log("case4");
 			Player4Spell.SetActive (true);
 			break;
 		}

@@ -37,8 +37,20 @@ public class CastSpell : MonoBehaviour {
 			}
 		}
 
-		
-		FsmBool groupFail = FsmVariables.GlobalVariables.FindFsmBool("GroupReady");
+		// this will show if the entire group has their threshold
+		FsmBool groupReady = FsmVariables.GlobalVariables.FindFsmBool("GroupReady");
+		groupReady.Value = checkStatus ();
+
+		// these are individual people's readiness
+		FsmBool p1Ready = FsmVariables.GlobalVariables.FindFsmBool("P1Ready");
+		p1Ready.Value = player1.GetComponentInChildren<Spell> ().thresholdCheck ();
+		FsmBool p2Ready = FsmVariables.GlobalVariables.FindFsmBool("P2Ready");
+		p2Ready.Value = player2.GetComponentInChildren<Spell> ().thresholdCheck ();
+		FsmBool p3Ready = FsmVariables.GlobalVariables.FindFsmBool("P3Ready");
+		p3Ready.Value = player3.GetComponentInChildren<Spell> ().thresholdCheck ();
+		FsmBool p4Ready = FsmVariables.GlobalVariables.FindFsmBool("P4Ready");
+		p4Ready.Value = player4.GetComponentInChildren<Spell> ().thresholdCheck ();
+	
 	}
 
 	void updateScores() {

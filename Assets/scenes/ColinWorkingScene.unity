@@ -1369,7 +1369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &337371632
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4690,7 +4690,6 @@ MonoBehaviour:
   player3: {fileID: 1307018333}
   player4: {fileID: 316207246}
   failThreshold: 10
-  readySteadyGo: 0
 --- !u!1 &1172512623
 GameObject:
   m_ObjectHideFlags: 0

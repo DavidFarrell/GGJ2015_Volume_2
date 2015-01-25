@@ -649,8 +649,8 @@ MonoBehaviour:
   maxThresholdSlider: {fileID: 86439810}
   minThresholdSlider: {fileID: 1594453203}
   currentPower: 0
-  currentMaxThreshold: 60
-  currentMinThreshold: 40
+  currentMaxThreshold: 65
+  currentMinThreshold: 35
 --- !u!114 &282252785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,7 +668,7 @@ MonoBehaviour:
   powerDecrease: 10
   triggerChoice: TriggersL
   penaltyTimer: 1
-  scaleFactor: 5
+  scaleFactor: 3
 --- !u!1 &292536002
 GameObject:
   m_ObjectHideFlags: 0

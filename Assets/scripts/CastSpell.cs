@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using HutongGames.PlayMaker;
+using System;
 
 public class CastSpell : MonoBehaviour {
 
@@ -68,14 +69,30 @@ public class CastSpell : MonoBehaviour {
 		player4Fails.Value += player4.GetComponentInChildren<Spell>().currentFailures();
 		FsmBool groupFail = FsmVariables.GlobalVariables.FindFsmBool("GroupFail");
 		FsmInt worstPlayer = FsmVariables.GlobalVariables.FindFsmInt("WorstPlayer");
+
 		int[] scores = {player1.GetComponentInChildren<Spell>().currentFailures(),player2.GetComponentInChildren<Spell>().currentFailures(),
 			player3.GetComponentInChildren<Spell>().currentFailures(),player4.GetComponentInChildren<Spell>().currentFailures()};
+
+		int p = indexOfMax(scores);
+		worstPlayer = p+1;
 
 		if((player1.GetComponentInChildren<Spell>().currentFailures() + player2.GetComponentInChildren<Spell>().currentFailures()
 		   + player3.GetComponentInChildren<Spell>().currentFailures() + player4.GetComponentInChildren<Spell>().currentFailures()) >  failThreshold)
 			groupFail.Value = true;
 		else groupFail.Value = false;
 
+	}
+
+	private int indexOfMax(int[] scores) {
+		int best = 0;
+		int bestIndex = 0;
+		for (int i = 0; i < scores.Length; i++) {
+			if (scores[i] > best){
+				bestIndex = i;
+				best = scores[i];
+			}
+		}
+		return bestIndex;
 	}
 
 	private bool checkStatus() {

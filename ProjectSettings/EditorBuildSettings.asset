@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/scenes/front_end.unity
   - enabled: 1
     path: Assets/scenes/jmc_scene.unity
+  - enabled: 1
+    path: Assets/scenes/mainGameFlow.unity

@@ -332,7 +332,7 @@ MonoBehaviour:
   spellPowerBar: {fileID: 281293797}
   currentPower: 0
   spellThreshold: {fileID: 834562631}
-  currentThreshold: 80
+  currentThreshold: 60
 --- !u!114 &29518729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa9354a791a94aaaa30bf2b345af18f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDecay: -10
+  timeDecay: -5
   timeDecaySpeed: .5
   powerIncrease: 5
   powerDecrease: 10
@@ -1875,8 +1875,8 @@ MonoBehaviour:
   speedDampening: 6
   scoreDampening: 1.29999995
   scoreDistance: .75
-  maxDrunkenness: 1.40999997
-  drunkChangeSpeed: 1.59000003
+  maxDrunkenness: 1.20000005
+  drunkChangeSpeed: 5.30000019
   hangoverDuration: 3
   drunkBounds: 1.05999994
   drunkInvincibility: 1
@@ -5533,7 +5533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDecay: -1
   timeDecaySpeed: .0500000007
-  powerIncrease: 5
+  powerIncrease: 8
   powerDecrease: 10
   pattern: A
   ButtonA: {fileID: 964666392}

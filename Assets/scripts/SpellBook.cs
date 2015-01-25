@@ -32,9 +32,28 @@ public class SpellBook : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
 	
 	public void assignSpells(){
-		clearSpells ();
+		if (Player1Spell != null)
+			Destroy (Player1Spell);
+		if (Player2Spell != null)
+			Destroy (Player2Spell);
+		if (Player3Spell != null)
+			Destroy (Player3Spell);
+		if (Player4Spell != null)
+			Destroy (Player4Spell);
+
+
+		FsmBool p1Ready = FsmVariables.GlobalVariables.FindFsmBool ("P1Ready");
+		p1Ready.Value = false;
+		FsmBool p2Ready = FsmVariables.GlobalVariables.FindFsmBool ("P2Ready");
+		p2Ready.Value = false;
+		FsmBool p3Ready = FsmVariables.GlobalVariables.FindFsmBool ("P3Ready");
+		p3Ready.Value = false;
+		FsmBool p4Ready = FsmVariables.GlobalVariables.FindFsmBool ("P4Ready");
+		p4Ready.Value = false;
 		
 		leftJoySpell = joystickSpells [Random.Range (0, joystickSpells.Length )];
 		rightJoySpell = joystickSpells [Random.Range (0, joystickSpells.Length )];
@@ -135,14 +154,7 @@ public class SpellBook : MonoBehaviour {
 	}
 	
 	public void clearSpells(){
-		if (Player1Spell != null)
-			Destroy (Player1Spell);
-		if (Player2Spell != null)
-			Destroy (Player2Spell);
-		if (Player3Spell != null)
-			Destroy (Player3Spell);
-		if (Player4Spell != null)
-			Destroy (Player4Spell);
+		assignSpells ();
 	}
 	
 }

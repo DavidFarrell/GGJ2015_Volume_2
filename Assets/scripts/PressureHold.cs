@@ -17,8 +17,6 @@ public class PressureHold : Spell {
 	new void Start () {
 		time = timeDecaySpeed;
 		myPowerBarDual = GetComponent<PowerBarDual>();
-		myPowerBarDual.currentMinThreshold = 10;
-		myPowerBarDual.currentMaxThreshold = 100;
 		myPowerBarDual.currentPower = 0;
 
 	}
@@ -50,7 +48,7 @@ public class PressureHold : Spell {
 		if(penaltyTimerCurrent <= 0) {
 			penaltyTimerCurrent = penaltyTimer;
 			modifyFailures(1);
-			Debug.Log ("PressureHold fail");
+			//Debug.Log ("PressureHold fail");
 		}
 	}
 

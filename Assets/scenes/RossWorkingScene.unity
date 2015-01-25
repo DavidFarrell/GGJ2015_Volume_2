@@ -1471,7 +1471,7 @@ MonoBehaviour:
   spellPowerBar: {fileID: 529357954}
   currentPower: 0
   spellThreshold: {fileID: 865351659}
-  currentThreshold: 80
+  currentThreshold: 58.5999985
 --- !u!114 &378901230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1495,8 +1495,8 @@ MonoBehaviour:
   speedDampening: 6
   scoreDampening: 1.29999995
   scoreDistance: .75
-  maxDrunkenness: 1.89999998
-  drunkChangeSpeed: 2.36999989
+  maxDrunkenness: 1.40999997
+  drunkChangeSpeed: 1.59000003
   hangoverDuration: 3
   drunkBounds: 1.05999994
   drunkInvincibility: 1

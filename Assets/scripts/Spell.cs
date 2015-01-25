@@ -17,7 +17,6 @@ public class Spell : MonoBehaviour {
 	protected void Start () {
 		time = timeDecaySpeed;
 		myPowerBar = GetComponent<PowerBar>();
-		myPowerBar.currentThreshold = 10;
 		myPowerBar.currentPower = 0;
 
 	}

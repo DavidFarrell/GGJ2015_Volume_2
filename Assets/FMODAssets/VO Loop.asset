@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1de34b244ae136f419822ae00ecd7ba8, type: 3}
-  m_Name: Bolt Loop
+  m_Name: VO Loop
   m_EditorClassIdentifier: 
   path: event:/Bolt Loop
   id: '{c8661785-dbd2-4e04-a4ce-4c6d2fb37f78}'

@@ -15,6 +15,9 @@ public class FMOD_TriggerEvent_JMC : MonoBehaviour {
 	void Start () {
 		fmAmbience = FMOD_StudioSystem.instance.GetEvent ("event:/Ambience");
 		fmBGM = FMOD_StudioSystem.instance.GetEvent ("event:/Music");
+
+
+
 		//fmBoltLoop = FMOD_StudioSystem.instance.GetEvent ("event:/Bolt Loop");
 
 		fmAmbience.getParameter("View", out fmAmbienceProgression);
@@ -63,4 +66,19 @@ public class FMOD_TriggerEvent_JMC : MonoBehaviour {
 		// 5-1.0 - up in the sky
 		fmAmbienceProgression.setValue(value);
 	}
+
+	public void playOneShot( int soundId) {
+		string sound = "event:/Lose Hit";
+		if (soundId == 1) sound = "event:/Win Hits";
+		if (soundId == 2) sound = "event:/VO Loop";
+		if (soundId == 3) sound = "event:/Wiz Synth2";//nowork
+		if (soundId == 4) sound = "event:/Wiz Synth3";
+		if (soundId == 5) sound = "event:/Wiz Synth4";
+		if (soundId == 6) sound = "event:/Wiz Synth1";
+
+
+
+		FMOD_StudioSystem.instance.PlayOneShot (sound, transform.position);
+	}
+
 }

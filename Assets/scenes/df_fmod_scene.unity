@@ -85,6 +85,7 @@ GameObject:
   - 114: {fileID: 1113304997}
   - 114: {fileID: 1113304999}
   - 114: {fileID: 1113305000}
+  - 114: {fileID: 1113305001}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -104,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asset: {fileID: 11400000, guid: e4954ef492e754eee8dea3208c1a1db2, type: 2}
-  path: '{aacc99ef-de41-4cfb-a37a-db271b7f00b6}'
+  path: '{e131b547-fe97-4ea2-af7a-191758d03201}'
   startEventOnAwake: 0
 --- !u!4 &1113304998
 Transform:
@@ -129,6 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d441af6f31141dfadfa77392a743ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  whichShound: 4
+  dftrigger: {fileID: 0}
 --- !u!114 &1113305000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,9 +143,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4dc8711473b87e48a8f7310f614d562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asset: {fileID: 11400000, guid: ca0a4d31576cd4cc79e847372afefc85, type: 2}
+  asset: {fileID: 0}
   path: '{67388f01-5121-47c8-86c5-75b772d93484}'
   startEventOnAwake: 0
+--- !u!114 &1113305001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1113304996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee110e5b393ea274a8e26550cd276d6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1422890690
 GameObject:
   m_ObjectHideFlags: 0

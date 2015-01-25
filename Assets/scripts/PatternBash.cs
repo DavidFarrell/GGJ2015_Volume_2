@@ -47,7 +47,7 @@ public class PatternBash : Spell {
 	}
 
 	protected virtual void setupPattern(){
-		string[] patternArray = new string[]{"BABY","ABXY","YABX","YAB","AB"};
+		string[] patternArray = new string[]{"BA","BX","YB","AY","XY"};
 		pattern = patternArray [Random.Range (0, patternArray.Length )];
 		//Get First Button to highlight
 		currentButton = "Button" + pattern[0];

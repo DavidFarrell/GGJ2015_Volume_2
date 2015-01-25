@@ -8,7 +8,7 @@ public class Waggle : Spell {
 	
 	public string axis = "R_XAxis";
 	private string penaltyAxis;
-	private bool isLR = true;
+//	private bool isLR = true;
 	public bool isLeftStick;
 	private float joystickInput;
 	private float penaltyInput;

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using HutongGames.PlayMaker;
 
 public class SpellBook : MonoBehaviour {
 	
@@ -70,6 +71,8 @@ public class SpellBook : MonoBehaviour {
 		{
 			Player1Spell = (GameObject)Instantiate (leftJoySpell);
 			GameObject player1 = GameObject.Find (players[0]);
+			FsmInt lastPlayer = FsmVariables.GlobalVariables.FindFsmInt ("LastPlayer");
+			lastPlayer.Value = player1.GetComponentInChildren<PlayerDetails>().playerNumber;
 			Player1Spell.transform.parent = player1.transform;
 			Player1Spell.transform.localPosition = new Vector3 (0, 0, 0);
 			Player1Spell.GetComponent<Spell> ().setLeftJoystick (true);
@@ -80,6 +83,8 @@ public class SpellBook : MonoBehaviour {
 		{
 			Player2Spell = (GameObject)Instantiate (rightJoySpell);
 			GameObject player2 = GameObject.Find (players[1]);
+			FsmInt lastPlayer = FsmVariables.GlobalVariables.FindFsmInt ("LastPlayer");
+			lastPlayer.Value = player2.GetComponentInChildren<PlayerDetails>().playerNumber;
 			Player2Spell.transform.parent = player2.transform;
 			Player2Spell.transform.localPosition = new Vector3 (0, 0, 0);
 			Player2Spell.GetComponent<Spell> ().setLeftJoystick (false);
@@ -90,6 +95,8 @@ public class SpellBook : MonoBehaviour {
 		{
 			Player3Spell = (GameObject)Instantiate (faceSpell);
 			GameObject player3 = GameObject.Find (players[2]);
+			FsmInt lastPlayer = FsmVariables.GlobalVariables.FindFsmInt ("LastPlayer");
+			lastPlayer.Value = player3.GetComponentInChildren<PlayerDetails>().playerNumber;
 			Player3Spell.transform.parent = player3.transform;
 			Player3Spell.transform.localPosition = new Vector3 (0, 0, 0);
 			Player3Spell.SetActive (true);
@@ -99,6 +106,8 @@ public class SpellBook : MonoBehaviour {
 		{
 			Player4Spell = (GameObject)Instantiate (triggerSpell);
 			GameObject player4 = GameObject.Find (players[3]);
+			FsmInt lastPlayer = FsmVariables.GlobalVariables.FindFsmInt ("LastPlayer");
+			lastPlayer.Value = player4.GetComponentInChildren<PlayerDetails>().playerNumber;
 			Player4Spell.transform.parent = player4.transform;
 			Player4Spell.transform.localPosition = new Vector3 (0, 0, 0);
 			Player4Spell.SetActive (true);

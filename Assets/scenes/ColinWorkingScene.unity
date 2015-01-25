@@ -1321,6 +1321,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 316207247}
+  - 114: {fileID: 316207248}
   m_Layer: 0
   m_Name: Player4_Widget_SpawnPoint
   m_TagString: Untagged
@@ -1340,6 +1341,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 615523447}
   m_RootOrder: 0
+--- !u!114 &316207248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 316207246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11430c445d3e8479dbf5d664b3fa88a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 4
 --- !u!1 &337371631
 GameObject:
   m_ObjectHideFlags: 0
@@ -3669,6 +3682,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 880830904}
+  - 114: {fileID: 880830905}
   m_Layer: 0
   m_Name: Player1_Widget_SpawnPoint
   m_TagString: Untagged
@@ -3688,6 +3702,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 615523447}
   m_RootOrder: 3
+--- !u!114 &880830905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 880830903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11430c445d3e8479dbf5d664b3fa88a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 1
 --- !u!1 &931710290
 GameObject:
   m_ObjectHideFlags: 0
@@ -4772,6 +4798,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1232356189}
+  - 114: {fileID: 1232356190}
   m_Layer: 0
   m_Name: Player2_Widget_SpawnPoint
   m_TagString: Untagged
@@ -4791,6 +4818,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 615523447}
   m_RootOrder: 2
+--- !u!114 &1232356190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1232356188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11430c445d3e8479dbf5d664b3fa88a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 2
 --- !u!1 &1268072471
 GameObject:
   m_ObjectHideFlags: 0
@@ -5026,6 +5065,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1307018334}
+  - 114: {fileID: 1307018335}
   m_Layer: 0
   m_Name: Player3_Widget_SpawnPoint
   m_TagString: Untagged
@@ -5045,6 +5085,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 615523447}
   m_RootOrder: 1
+--- !u!114 &1307018335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1307018333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11430c445d3e8479dbf5d664b3fa88a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 3
 --- !u!1 &1311473359
 GameObject:
   m_ObjectHideFlags: 0
@@ -5215,13 +5267,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e807644f8938b421ba221cad38e3ba93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeDecay: -2
+  timeDecay: 0
   timeDecaySpeed: .00999999978
-  powerIncrease: 5
-  powerDecrease: 10
+  powerIncrease: 0
+  powerDecrease: 0
   triggerChoice: TriggersL
   penaltyTimer: 1
-  scaleFactor: 5
+  scaleFactor: 3
 --- !u!1 &1391101881
 GameObject:
   m_ObjectHideFlags: 0

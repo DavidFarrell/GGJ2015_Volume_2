@@ -4077,6 +4077,7 @@ MonoBehaviour:
   player2: {fileID: 1232356188}
   player3: {fileID: 1307018333}
   player4: {fileID: 316207246}
+  failThreshold: 10
 --- !u!1 &1172512623
 GameObject:
   m_ObjectHideFlags: 0

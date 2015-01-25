@@ -36,6 +36,9 @@ public class CastSpell : MonoBehaviour {
 				gameManagerFSM.SendEvent("SpellFailed");
 			}
 		}
+
+		
+		FsmBool groupFail = FsmVariables.GlobalVariables.FindFsmBool("GroupReady");
 	}
 
 	void updateScores() {

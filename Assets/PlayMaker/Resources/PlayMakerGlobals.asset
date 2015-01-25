@@ -56,7 +56,13 @@ MonoBehaviour:
       showInInspector: 0
       networkSync: 0
       value: 0
-    boolVariables: []
+    boolVariables:
+    - useVariable: 1
+      name: GroupFail
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 0
     stringVariables: []
     vector2Variables: []
     vector3Variables: []

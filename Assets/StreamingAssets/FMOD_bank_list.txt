@@ -1,5 +1,11 @@
 Ambience.bank
-Bolt Loop.bank
+Lose Hit.bank
 Master Bank.bank
 Master Bank.strings.bank
 Music.bank
+VO Loop.bank
+Win Hits.bank
+Wiz Synth 2.bank
+Wiz Synth 3.bank
+Wiz Synth 4.bank
+Wiz Synth1.bank

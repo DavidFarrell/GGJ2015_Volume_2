@@ -74,7 +74,7 @@ public class CastSpell : MonoBehaviour {
 			player3.GetComponentInChildren<Spell>().currentFailures(),player4.GetComponentInChildren<Spell>().currentFailures()};
 
 		int p = indexOfMax(scores);
-		worstPlayer = p+1;
+		worstPlayer.Value = p+1;
 
 		if((player1.GetComponentInChildren<Spell>().currentFailures() + player2.GetComponentInChildren<Spell>().currentFailures()
 		   + player3.GetComponentInChildren<Spell>().currentFailures() + player4.GetComponentInChildren<Spell>().currentFailures()) >  failThreshold)

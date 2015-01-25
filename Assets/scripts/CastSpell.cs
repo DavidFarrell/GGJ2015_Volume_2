@@ -17,6 +17,9 @@ public class CastSpell : MonoBehaviour {
 
 	public int failThreshold = 10;
 
+
+	public bool readySteadyGo = false;
+
 	// Use this for initialization
 	void Start () {
 		gameManagerFSM = gameManagerObj.GetComponent<PlayMakerFSM> ();
@@ -24,32 +27,33 @@ public class CastSpell : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		// if they press the button, they better be rigggghhht!
-		if (Input.GetButtonDown ("ButtonMiddle")) {
-			updateScores ();
-			if  ( checkStatus () ) {
-				Debug.Log ("YOU GOT IT");
-				gameManagerFSM.SendEvent("SyncSucceed");
-			} else {
-				Debug.Log ("FAIL!");
-				gameManagerFSM.SendEvent("SpellFailed");
+		if (readySteadyGo) {
+			// if they press the button, they better be rigggghhht!
+			if (Input.GetButtonDown ("ButtonMiddle")) {
+					updateScores ();
+					if (checkStatus ()) {
+							Debug.Log ("YOU GOT IT");
+							gameManagerFSM.SendEvent ("SyncSucceed");
+					} else {
+							Debug.Log ("FAIL!");
+							gameManagerFSM.SendEvent ("SpellFailed");
+					}
 			}
+
+			// this will show if the entire group has their threshold
+			FsmBool groupReady = FsmVariables.GlobalVariables.FindFsmBool ("GroupReady");
+			groupReady.Value = checkStatus ();
+
+			// these are individual people's readiness
+			FsmBool p1Ready = FsmVariables.GlobalVariables.FindFsmBool ("P1Ready");
+			p1Ready.Value = player1.GetComponentInChildren<Spell> ().thresholdCheck ();
+			FsmBool p2Ready = FsmVariables.GlobalVariables.FindFsmBool ("P2Ready");
+			p2Ready.Value = player2.GetComponentInChildren<Spell> ().thresholdCheck ();
+			FsmBool p3Ready = FsmVariables.GlobalVariables.FindFsmBool ("P3Ready");
+			p3Ready.Value = player3.GetComponentInChildren<Spell> ().thresholdCheck ();
+			FsmBool p4Ready = FsmVariables.GlobalVariables.FindFsmBool ("P4Ready");
+			p4Ready.Value = player4.GetComponentInChildren<Spell> ().thresholdCheck ();
 		}
-
-		// this will show if the entire group has their threshold
-		FsmBool groupReady = FsmVariables.GlobalVariables.FindFsmBool("GroupReady");
-		groupReady.Value = checkStatus ();
-
-		// these are individual people's readiness
-		FsmBool p1Ready = FsmVariables.GlobalVariables.FindFsmBool("P1Ready");
-		p1Ready.Value = player1.GetComponentInChildren<Spell> ().thresholdCheck ();
-		FsmBool p2Ready = FsmVariables.GlobalVariables.FindFsmBool("P2Ready");
-		p2Ready.Value = player2.GetComponentInChildren<Spell> ().thresholdCheck ();
-		FsmBool p3Ready = FsmVariables.GlobalVariables.FindFsmBool("P3Ready");
-		p3Ready.Value = player3.GetComponentInChildren<Spell> ().thresholdCheck ();
-		FsmBool p4Ready = FsmVariables.GlobalVariables.FindFsmBool("P4Ready");
-		p4Ready.Value = player4.GetComponentInChildren<Spell> ().thresholdCheck ();
 	
 	}
 

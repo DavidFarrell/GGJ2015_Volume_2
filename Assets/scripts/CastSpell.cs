@@ -26,7 +26,13 @@ public class CastSpell : MonoBehaviour {
 		// if they press the button, they better be rigggghhht!
 		if (Input.GetButtonDown ("ButtonMiddle")) {
 			updateScores ();
-			checkStatus ();
+			if  ( checkStatus () ) {
+				Debug.Log ("YOU GOT IT");
+				gameManagerFSM.SendEvent("SyncSucceed");
+			} else {
+				Debug.Log ("FAIL!");
+				gameManagerFSM.SendEvent("SpellFailed");
+			}
 		}
 	}
 
@@ -43,13 +49,9 @@ public class CastSpell : MonoBehaviour {
 	}
 
 	private bool checkStatus() {
-		if (player1.GetComponentInChildren<Spell> ().thresholdCheck () && player2.GetComponentInChildren<Spell> ().thresholdCheck () ) {//&& player3.GetComponentInChildren<Spell> ().thresholdCheck () && player4.GetComponentInChildren<Spell> ().thresholdCheck ()) {
-			Debug.Log ("YOU GOT IT");
-			gameManagerFSM.SendEvent("SyncSucceed");
+		if (player1.GetComponentInChildren<Spell> ().thresholdCheck () && player2.GetComponentInChildren<Spell> ().thresholdCheck () && player3.GetComponentInChildren<Spell> ().thresholdCheck () && player4.GetComponentInChildren<Spell> ().thresholdCheck ()) {
 			return true;
 		} else {
-			Debug.Log ("FAIL!");
-			gameManagerFSM.SendEvent("SpellFailed");
 			return false;
 		}
 	}

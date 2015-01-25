@@ -15,6 +15,8 @@ public class CastSpell : MonoBehaviour {
 
 	public GameObject player4;
 
+	public int failThreshold = 10;
+
 	// Use this for initialization
 	void Start () {
 		gameManagerFSM = gameManagerObj.GetComponent<PlayMakerFSM> ();
@@ -45,6 +47,12 @@ public class CastSpell : MonoBehaviour {
 		player3Fails.Value += player3.GetComponentInChildren<Spell>().currentFailures();
 		FsmInt player4Fails = FsmVariables.GlobalVariables.FindFsmInt("P4Score");
 		player4Fails.Value += player4.GetComponentInChildren<Spell>().currentFailures();
+		FsmBool groupFail = FsmVariables.GlobalVariables.FindFsmBool("GroupFail");
+
+		if((player1.GetComponentInChildren<Spell>().currentFailures() + player2.GetComponentInChildren<Spell>().currentFailures()
+		   + player3.GetComponentInChildren<Spell>().currentFailures() + player4.GetComponentInChildren<Spell>().currentFailures()) >  failThreshold)
+			groupFail.Value = true;
+		else groupFail.Value = false;
 
 	}
 

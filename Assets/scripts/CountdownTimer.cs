@@ -6,7 +6,7 @@ public class CountdownTimer : MonoBehaviour {
 
 	private PowerBar myPowerBar;
 	private int power;
-	public float timeLeft = 30f;
+	//public float timeLeft = 30f;
 	public float initialTime = 30f;
 
 	public GameObject gameManagerObj;
@@ -18,18 +18,25 @@ public class CountdownTimer : MonoBehaviour {
 		myPowerBar = GetComponent<PowerBar>();
 		//myPowerBar.currentThreshold = ;
 		myPowerBar.currentPower = 100;
-		timeLeft = initialTime;
+		FsmVariables.GlobalVariables.FindFsmFloat ("TimeLeft").Value = initialTime;
 		
+	}
+
+	public void setNewTime(){
+		//myPowerBar = GetComponent<PowerBar>();
+		//myPowerBar.currentThreshold = ;
+		//myPowerBar.currentPower = 100;
+//		/timeLeft = initialTime;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (FsmVariables.GlobalVariables.FindFsmBool ("MonitorSync").Value) {
-			timeLeft -= (Time.deltaTime);
-			float percentage = timeLeft / initialTime;
+			FsmVariables.GlobalVariables.FindFsmFloat ("TimeLeft").Value -= (Time.deltaTime);
+			float percentage = FsmVariables.GlobalVariables.FindFsmFloat ("TimeLeft").Value / initialTime;
 			myPowerBar.currentPower = percentage * 100;
 
-			if (timeLeft <= 0) {
+			if (FsmVariables.GlobalVariables.FindFsmFloat ("TimeLeft").Value <= 0) {
 				// trigger failure
 				//Debug.Log("YOU DIE");
 				gameManagerFSM.SendEvent ("TimerExpired");

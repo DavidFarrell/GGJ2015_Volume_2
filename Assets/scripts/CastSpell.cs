@@ -29,33 +29,58 @@ public class CastSpell : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		FsmBool syncStatus  = FsmVariables.GlobalVariables.FindFsmBool("MonitorSync");
+		Debug.Log ("MOnitor Sync is" + syncStatus);
 
 		if (syncStatus.Value) {
-			// if they press the button, they better be rigggghhht!
-			if (Input.GetButtonDown ("ButtonMiddle")) {
-					updateScores ();
-					if (checkStatus ()) {
-							Debug.Log ("YOU GOT IT");
-							gameManagerFSM.SendEvent ("SyncSucceed");
-					} else {
-							Debug.Log ("FAIL!");
-							gameManagerFSM.SendEvent ("SpellFailed");
-					}
-			}
+			Debug.Log ("Checking stuff ");
 
-			// this will show if the entire group has their threshold
-			FsmBool groupReady = FsmVariables.GlobalVariables.FindFsmBool ("GroupReady");
-			groupReady.Value = checkStatus ();
 
 			// these are individual people's readiness
-			FsmBool p1Ready = FsmVariables.GlobalVariables.FindFsmBool ("P1Ready");
-			p1Ready.Value = player1.GetComponentInChildren<Spell> ().thresholdCheck ();
-			FsmBool p2Ready = FsmVariables.GlobalVariables.FindFsmBool ("P2Ready");
-			p2Ready.Value = player2.GetComponentInChildren<Spell> ().thresholdCheck ();
-			FsmBool p3Ready = FsmVariables.GlobalVariables.FindFsmBool ("P3Ready");
-			p3Ready.Value = player3.GetComponentInChildren<Spell> ().thresholdCheck ();
-			FsmBool p4Ready = FsmVariables.GlobalVariables.FindFsmBool ("P4Ready");
-			p4Ready.Value = player4.GetComponentInChildren<Spell> ().thresholdCheck ();
+
+
+			Spell p1Spell = player1.GetComponentInChildren<Spell> ();
+			Spell p2Spell = player2.GetComponentInChildren<Spell> ();
+			Spell p3Spell = player3.GetComponentInChildren<Spell> ();
+			Spell p4Spell = player4.GetComponentInChildren<Spell> ();
+
+			if ( p1Spell != null) {
+				FsmBool p1Ready = FsmVariables.GlobalVariables.FindFsmBool ("P1Ready");
+				p1Ready.Value = p1Spell.thresholdCheck ();
+			}
+
+			if (p2Spell != null) {
+				FsmBool p2Ready = FsmVariables.GlobalVariables.FindFsmBool ("P2Ready");
+				p2Ready.Value = p2Spell.thresholdCheck ();
+			}
+			if (p3Spell != null) {
+				FsmBool p3Ready = FsmVariables.GlobalVariables.FindFsmBool ("P3Ready");
+				p3Ready.Value = p3Spell.thresholdCheck ();
+			}
+
+			if (p4Spell != null) {
+				FsmBool p4Ready = FsmVariables.GlobalVariables.FindFsmBool ("P4Ready");
+				p4Ready.Value = p4Spell.thresholdCheck ();
+			}
+
+			if ( p1Spell != null && p2Spell != null && p3Spell != null && p4Spell != null) {
+				// if they press the button, they better be rigggghhht!
+				if (Input.GetButtonDown ("ButtonMiddle")) {
+					updateScores ();
+					if (checkStatus ()) {
+						Debug.Log ("YOU GOT IT");
+						gameManagerFSM.SendEvent ("SyncSucceed");
+					} else {
+						Debug.Log ("FAIL!");
+						gameManagerFSM.SendEvent ("SpellFailed");
+					}
+				}
+
+				
+				// this will show if the entire group has their threshold
+				FsmBool groupReady = FsmVariables.GlobalVariables.FindFsmBool ("GroupReady");
+				groupReady.Value = checkStatus ();
+
+			}
 		}
 	
 	}

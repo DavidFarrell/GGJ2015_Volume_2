@@ -12,20 +12,26 @@ MonoBehaviour:
   m_Name: PlayMakerGlobals
   m_EditorClassIdentifier: 
   variables:
-    floatVariables: []
+    floatVariables:
+    - useVariable: 1
+      name: TimeLeft
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 7.15038252
     intVariables:
     - useVariable: 1
       name: CurrentRound
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 0
+      value: 2
     - useVariable: 1
       name: LastPlayer
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 0
+      value: 4
     - useVariable: 1
       name: MeteorHealth
       tooltip: How many impacts remaining
@@ -86,7 +92,7 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 0
+      value: 1
     - useVariable: 1
       name: P1Ready
       tooltip: 
@@ -121,4 +127,5 @@ MonoBehaviour:
     objectVariables: []
     materialVariables: []
     textureVariables: []
-  events: []
+  events:
+  - StartIssuingSpells

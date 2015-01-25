@@ -58,13 +58,9 @@ public class SpellBook : MonoBehaviour {
 		
 		
 		//spawns all 4 at once fr
-		// jon disabled for playmaker staggering
-		Debug.Log ("DF");
-		for (int i = 1; i <= 4; i++) {
-			Debug.Log("hi");
-				spawnPlayerSpell (i);
-		}
-
+		//for (int i = 1; i <= 4; i++)
+		//	spawnPlayerSpell (i);
+		
 		
 		
 	}
@@ -134,7 +130,7 @@ public class SpellBook : MonoBehaviour {
 		}
 	}
 	
-	void clearSpells(){
+	public void clearSpells(){
 		if (Player1Spell != null)
 			Destroy (Player1Spell);
 		if (Player2Spell != null)

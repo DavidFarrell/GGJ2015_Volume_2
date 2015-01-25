@@ -63,6 +63,9 @@ public class CastSpell : MonoBehaviour {
 		FsmInt player4Fails = FsmVariables.GlobalVariables.FindFsmInt("P4Score");
 		player4Fails.Value += player4.GetComponentInChildren<Spell>().currentFailures();
 		FsmBool groupFail = FsmVariables.GlobalVariables.FindFsmBool("GroupFail");
+		FsmInt worstPlayer = FsmVariables.GlobalVariables.FindFsmInt("WorstPlayer");
+		int[] scores = {player1.GetComponentInChildren<Spell>().currentFailures(),player2.GetComponentInChildren<Spell>().currentFailures(),
+			player3.GetComponentInChildren<Spell>().currentFailures(),player4.GetComponentInChildren<Spell>().currentFailures()};
 
 		if((player1.GetComponentInChildren<Spell>().currentFailures() + player2.GetComponentInChildren<Spell>().currentFailures()
 		   + player3.GetComponentInChildren<Spell>().currentFailures() + player4.GetComponentInChildren<Spell>().currentFailures()) >  failThreshold)

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using HutongGames.PlayMaker;
 
 public class CastSpell : MonoBehaviour {
 
@@ -24,8 +25,21 @@ public class CastSpell : MonoBehaviour {
 
 		// if they press the button, they better be rigggghhht!
 		if (Input.GetButtonDown ("ButtonMiddle")) {
+			updateScores ();
 			checkStatus ();
 		}
+	}
+
+	void updateScores() {
+		FsmInt player1Fails = FsmVariables.GlobalVariables.FindFsmInt("P1Score");
+		player1Fails.Value += player1.GetComponentInChildren<Spell>().currentFailures();
+		FsmInt player2Fails = FsmVariables.GlobalVariables.FindFsmInt("P2Score");
+		player2Fails.Value += player2.GetComponentInChildren<Spell>().currentFailures();
+		FsmInt player3Fails = FsmVariables.GlobalVariables.FindFsmInt("P3Score");
+		player3Fails.Value += player3.GetComponentInChildren<Spell>().currentFailures();
+		FsmInt player4Fails = FsmVariables.GlobalVariables.FindFsmInt("P4Score");
+		player4Fails.Value += player4.GetComponentInChildren<Spell>().currentFailures();
+
 	}
 
 	private bool checkStatus() {

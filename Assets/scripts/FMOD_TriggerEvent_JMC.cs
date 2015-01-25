@@ -15,11 +15,11 @@ public class FMOD_TriggerEvent_JMC : MonoBehaviour {
 	void Start () {
 		fmAmbience = FMOD_StudioSystem.instance.GetEvent ("event:/Ambience");
 		fmBGM = FMOD_StudioSystem.instance.GetEvent ("event:/Music");
-		fmBoltLoop = FMOD_StudioSystem.instance.GetEvent ("event:/Bolt Loop");
+		//fmBoltLoop = FMOD_StudioSystem.instance.GetEvent ("event:/Bolt Loop");
 
 		fmAmbience.getParameter("View", out fmAmbienceProgression);
 		fmBGM.getParameter("Progression", out fmBMGProgression);
-		fmBoltLoop.getParameter("Additional", out fmBoltProgression);
+	//	fmBoltLoop.getParameter("Additional", out fmBoltProgression);
 
 	}
 	
@@ -36,9 +36,10 @@ public class FMOD_TriggerEvent_JMC : MonoBehaviour {
 		fmBGM.start();
 	}
 
+	/*
 	public void beginBoltLoop(){
 		fmBoltLoop.start();
-	}
+	}*/
 
 	public void musicProgression(int value){
 		// begins at 0, 1 2 3 4 are the people progression?
@@ -49,13 +50,13 @@ public class FMOD_TriggerEvent_JMC : MonoBehaviour {
 		fmBMGProgression.setValue(value);
 	}
 
-	public void boltLoopProgression(int value){
+/*	public void boltLoopProgression(int value){
 		// begins at 0 = player 1 starting
 		// set to 1 when player 2 starts
 		// set to 2 when player 3 starts
 		// set to 3 when player 4 starts
 		fmBoltProgression.setValue(value);
-	}
+	}*/
 	
 	public void ambientProgression(float value){
 		// 0-0.5.49 - down on ground

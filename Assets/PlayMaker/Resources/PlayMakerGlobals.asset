@@ -18,7 +18,7 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 7.15038252
+      value: 11.9059324
     intVariables:
     - useVariable: 1
       name: CurrentRound
@@ -31,7 +31,7 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 4
+      value: 1
     - useVariable: 1
       name: MeteorHealth
       tooltip: How many impacts remaining
@@ -61,7 +61,7 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 0
+      value: 2
     - useVariable: 1
       name: SpellQuality
       tooltip: 
@@ -73,7 +73,7 @@ MonoBehaviour:
       tooltip: 
       showInInspector: 0
       networkSync: 0
-      value: 0
+      value: 4
     boolVariables:
     - useVariable: 1
       name: GroupFail

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using HutongGames.PlayMaker;
 
 public class CountdownTimer : MonoBehaviour {
 
@@ -23,14 +24,16 @@ public class CountdownTimer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		timeLeft -= (Time.deltaTime);
-		float percentage = timeLeft / initialTime;
-		myPowerBar.currentPower = percentage*100;
+		if (FsmVariables.GlobalVariables.FindFsmBool ("MonitorSync").Value) {
+			timeLeft -= (Time.deltaTime);
+			float percentage = timeLeft / initialTime;
+			myPowerBar.currentPower = percentage * 100;
 
-		if (timeLeft <= 0) {
-			// trigger failure
-			//Debug.Log("YOU DIE");
-			gameManagerFSM.SendEvent("TimerExpired");
+			if (timeLeft <= 0) {
+				// trigger failure
+				//Debug.Log("YOU DIE");
+				gameManagerFSM.SendEvent ("TimerExpired");
+			}
 		}
 	}
 }

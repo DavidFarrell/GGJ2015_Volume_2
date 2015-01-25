@@ -18,17 +18,19 @@ public class CastSpell : MonoBehaviour {
 
 	public int failThreshold = 10;
 
-
-	public bool readySteadyGo = false;
-
 	// Use this for initialization
 	void Start () {
 		gameManagerFSM = gameManagerObj.GetComponent<PlayMakerFSM> ();
+
+
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (readySteadyGo) {
+		FsmBool syncStatus  = FsmVariables.GlobalVariables.FindFsmBool("MonitorSync");
+
+		if (syncStatus.Value) {
 			// if they press the button, they better be rigggghhht!
 			if (Input.GetButtonDown ("ButtonMiddle")) {
 					updateScores ();

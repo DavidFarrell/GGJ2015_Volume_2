@@ -60,8 +60,8 @@ public class Waggle : Spell {
 
 	public override void setLeftJoystick(bool isLeft) {
 		isLeftStick = isLeft;
-		axis = isLeftStick ?  "L_XAxis" : "R_XAxis";
-		penaltyAxis = isLeftStick ?  "L_YAxis" : "R_YAxis";
+		axis = isLeftStick ?  platformSpecificInput("L_XAxis") : platformSpecificInput("R_XAxis");
+		penaltyAxis = isLeftStick ?  platformSpecificInput("L_YAxis") : platformSpecificInput("R_YAxis");
 		GameObject stickText = transform.FindChild("PowerBar/StickID").gameObject;
 		stickText.GetComponent<Text>().text = isLeft ? "LS" : "RS" ;
 	}

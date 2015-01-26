@@ -64,5 +64,42 @@ public class Spell : MonoBehaviour {
 		}
 	}
 
+	public string rightXAxis()
+	{
+		if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.OSXPlayer) {
+			return "R_XAxisOSX";
+		} else {
+			return "R_XAxis";
+		}
+	}
+
+	public string rightYAxis()
+	{
+		if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.OSXPlayer) {
+			return "R_YAxisOSX";
+		} else {
+			return "R_YAxis";
+		}
+	}
+
+	public string platformSpecificInput(string inputString)
+	{
+		if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.OSXPlayer) {
+			return inputString + "OSX";
+		} else 
+			return inputString;
+	}
+
+	public string leftTrigger()
+	{
+		if (Application.platform == RuntimePlatform.OSXEditor || Application.platform == RuntimePlatform.OSXPlayer) {
+			return "TriggersLOSX";
+		} else {
+			return "TriggersL";
+		}
+	}
+
+
+
 
 }

@@ -81,8 +81,9 @@ public class PatternBash : Spell {
 			}
 			else if (Input.GetButtonDown(currentButton)) {
 				successPress();
+				currentButton = getNextButton();
 			} else failPress();
-			currentButton = getNextButton();					//When one or more face buttons are pressed cycle the next button to be presed
+			//currentButton = getNextButton();					//When one or more face buttons are pressed cycle the next button to be presed
 			faceDict.TryGetValue(currentButton,out buttonValue);
 			ButtonsOverlay.GetComponent<UI_Glyphs_PressThis>().faceID = buttonValue; //Sets the next correct button to be highlighted.
 		}

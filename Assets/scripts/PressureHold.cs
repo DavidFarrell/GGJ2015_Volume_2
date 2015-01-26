@@ -53,7 +53,12 @@ public class PressureHold : Spell {
 	}
 
 	void pollInput() {
-		joystickInput = Input.GetAxis (triggerChoice);
+		joystickInput = Input.GetAxis (platformSpecificInput(triggerChoice));
+		//mac os and windows triggers also work completely differently.  osx trigger is -1 to 1. windows is 0 to 1 and 0 to -1
+		//
+		if (Application.platform != RuntimePlatform.OSXEditor && Application.platform != RuntimePlatform.OSXPlayer) {
+			joystickInput = (joystickInput * 2) - 1;
+		}
 	}
 
 	public override void decayOverTime()

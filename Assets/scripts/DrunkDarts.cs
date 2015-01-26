@@ -36,8 +36,8 @@ public class DrunkDarts : Spell {
 		base.Start ();
 
 		if (!isLeftStick) {
-			horizontalAxis = "R_XAxis";
-			verticalAxis = "R_YAxis";
+			horizontalAxis = platformSpecificInput("R_XAxis");
+			verticalAxis = platformSpecificInput("R_YAxis");
 		}
 
 		currentForce = new Vector2 (0, 0);

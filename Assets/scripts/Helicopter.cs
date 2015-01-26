@@ -76,12 +76,12 @@ public class Helicopter : Spell {
 	void pollInput() {
 
 		if (isLeftStick) {
-			XAxis = Input.GetAxis ("L_XAxis");
-			YAxis = Input.GetAxis ("L_YAxis");
+			XAxis = Input.GetAxis (platformSpecificInput("L_XAxis"));
+			YAxis = Input.GetAxis (platformSpecificInput("L_YAxis"));
 				}
 		else{
-			XAxis = Input.GetAxis ("R_XAxis");
-			YAxis = Input.GetAxis ("R_YAxis");
+			XAxis = Input.GetAxis (platformSpecificInput("R_XAxis"));
+			YAxis = Input.GetAxis (platformSpecificInput("R_YAxis"));
 		}
 
 		if (XAxis > 0.8f) XAxis = 1;

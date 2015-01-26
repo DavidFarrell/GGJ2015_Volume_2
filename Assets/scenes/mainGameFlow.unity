@@ -1875,8 +1875,8 @@ MonoBehaviour:
   speedDampening: 6
   scoreDampening: 1.29999995
   scoreDistance: .75
-  maxDrunkenness: 1.20000005
-  drunkChangeSpeed: 5.30000019
+  maxDrunkenness: .800000012
+  drunkChangeSpeed: 1.26999998
   hangoverDuration: 3
   drunkBounds: 1.05999994
   drunkInvincibility: 1
@@ -8561,7 +8561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewOnGUI: 1
   enableGUILayout: 1
-  drawStateLabels: 1
+  drawStateLabels: 0
   GUITextureStateLabels: 1
   GUITextStateLabels: 1
   filterLabelsWithDistance: 0

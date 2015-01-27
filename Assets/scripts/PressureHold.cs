@@ -58,6 +58,8 @@ public class PressureHold : Spell {
 		//
 		if (Application.platform != RuntimePlatform.OSXEditor && Application.platform != RuntimePlatform.OSXPlayer) {
 			joystickInput = (joystickInput * 2) - 1;
+			if (joystickInput > -0.3 && joystickInput < 0.3)
+				joystickInput = 0;
 		}
 	}
 
